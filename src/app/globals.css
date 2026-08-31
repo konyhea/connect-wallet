@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-openRhude: "Open Sans", "Segoe UI", sans-serif;
+
+  --color-black-a1: rgba(17, 17, 17, 0.04);
+  --color-black-a2: rgba(17, 17, 17, 0.08);
+  --color-black-a4: rgba(17, 17, 17, 0.16);
+  --color-black-a6: rgba(17, 17, 17, 0.38);
+  --color-black-a7: rgba(17, 17, 17, 0.44);
+  --color-black-a8: rgba(17, 17, 17, 0.48);
+
+  --color-p3-orange: color(display-p3 0.9529411764705882 0.41568627450980394 0.23921568627450981);
+  --color-p3-coinbase: color(display-p3 0 0.3215686274509804 1);
+  --color-body-muted: rgba(17, 17, 17, 0.32);
+  --breakpoint-xs: 440px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-openRhude);
+}
+
+.spinner {
+  border-radius: 9999px;
+  background: conic-gradient(
+    from -90deg,
+    transparent,
+    transparent,
+    transparent,
+    transparent,
+    transparent,
+    rgba(26, 136, 248, 1)
+  );
+  animation: spin 1.8s linear infinite;
+}
+
+.spinner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
