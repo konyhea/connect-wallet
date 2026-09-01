@@ -14,10 +14,18 @@
   --color-p3-coinbase: color(display-p3 0 0.3215686274509804 1);
   --color-body-muted: rgba(17, 17, 17, 0.32);
   --breakpoint-xs: 440px;
+  --font-pain: "pain";
 }
 
 :root {
   color-scheme: light;
+}
+
+
+@font-face {
+  font-family: "pain";
+  src: url("/XVF-s.p.09wgnj-k7qxjv.woff2") format("woff2");
+  font-display: swap;
 }
 
 html,

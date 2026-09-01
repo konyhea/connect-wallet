@@ -4,10 +4,8 @@ import { Dialog } from "radix-ui";
 import useMeasure from "react-use-measure";
 import { useMediaQuery } from "./hooks/useMediaQuery";
 
-
 import { motion, AnimatePresence } from "motion/react";
-import { SPRING, SHEET_EASE } from  "./config/token"
-
+import { SPRING, SHEET_EASE } from "./config/token";
 
 // states for the different view
 import { Default } from "./states/Default";
@@ -17,7 +15,7 @@ import { Wallets } from "./states/Wallets";
 import { Argent } from "./states/Argent";
 import { CoinBase } from "./states/Coinbase";
 
-import type { DialogState } from "./types/dialogTypes"
+import type { DialogState } from "./types/dialogTypes";
 import { useState } from "react";
 
 const STEPS: Record<
@@ -147,7 +145,7 @@ const SignInDialog = () => {
                 transition={{ duration: 0.3, delay: 0.032, ease: SHEET_EASE }}
               >
                 <Dialog.Content forceMount asChild>
-                  <div className="font-openRhude font-medium bg-white rounded-t-2xl select-none xs:rounded-xl">
+                  <div className="font-pain font-medium bg-white rounded-t-2xl select-none xs:rounded-xl">
                     {/* <div className="absolute w-full xs:w-auto z-3 bottom-[-5px] font-openRhude font-medium  bg-white rounded-t-2xl select-none xs:top-1/2 xs:left-1/2 xs:-translate-y-1/2 xs:bottom-auto xs:-translate-x-1/2 xs:rounded-[12px]"> */}
                     <header className="relative w-full ">
                       <div className="w-full transition-[width] z-3 h-16 absolute top-1 pointer-events-auto ">
