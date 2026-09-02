@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Connect Wallet
 
-## Getting Started
+A lightweight Next.js wallet connection UI that showcases a modern sign-in flow for connecting a crypto wallet. The app presents a polished modal-based experience with wallet options, email continuation, and an animated multi-step dialog inspired by wallet onboarding screens.
 
-First, run the development server:
+## What this project includes
+
+- Wallet connection modal UI
+- Multi-step dialog flow
+- Email entry and validation
+- Wallet provider choices such as MetaMask, Argent, Coinbase, and other wallets
+- Animated transitions using Framer Motion
+- Accessible dialog patterns with Radix UI primitives
+- Responsive styling with Tailwind CSS
+
+## Tech stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Radix UI
+- Framer Motion
+- Jest + React Testing Library
+
+## Getting started
+
+Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the app locally:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open http://localhost:3000 to view it in the browser.
 
-## Learn More
+## Running tests
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+yarn test
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project purpose
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This app is designed as a front-end prototype for a wallet connect experience. It focuses on UI flow, transitions, and user interaction patterns rather than backend blockchain integration.
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The main entry point is the wallet dialog experience rendered from the app page. The component structure is organized around step-based state transitions and reusable UI blocks for wallet options and authentication flows.
