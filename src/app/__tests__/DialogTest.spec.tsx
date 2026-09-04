@@ -7,16 +7,16 @@ jest.mock('../__component/states/Default', () => ({
   Default: ({ handleNext }) => (
     <div>
       <p>Default View</p>
-      <button onClick={() => handleNext('Family')}>Go to Family</button>
+      <button onClick={() => handleNext('Email')}>Go to Email</button>
       <button onClick={() => handleNext('Wallets')}>Go to Wallets</button>
     </div>
   ),
 }))
 
-jest.mock('../__component/states/Family', () => ({
-  Family: ({ handleNext }) => (
+jest.mock('../__component/states/Email', () => ({
+  Email: ({ handleNext }) => (
     <div>
-      <p>Family View</p>
+      <p>Email View</p>
       <button onClick={() => handleNext('Metamask')}>Go to Metamask</button>
     </div>
   ),
@@ -71,11 +71,11 @@ describe('Opening the dialog', () => {
 })
 
 describe('Step navigation (handleNext)', () => {
-  it('navigates from Default to Family and updates the label', async () => {
+  it('navigates from Default to Email and updates the label', async () => {
     const user = await openDialog()
-    await user.click(screen.getByText('Go to Family'))
+    await user.click(screen.getByText('Go to Email'))
 
-    expect(screen.getByText('Family View')).toBeInTheDocument()
+    expect(screen.getByText('Email View')).toBeInTheDocument()
     expect(screen.getByText('Sign In Email')).toBeInTheDocument()
     expect(screen.queryByText('Default View')).not.toBeInTheDocument()
   })
@@ -88,9 +88,9 @@ describe('Step navigation (handleNext)', () => {
     expect(screen.getByText('Choose Wallet')).toBeInTheDocument()
   })
 
-  it('navigates multiple steps deep: Default -> Family -> Metamask', async () => {
+  it('navigates multiple steps deep: Default -> Email -> Metamask', async () => {
     const user = await openDialog()
-    await user.click(screen.getByText('Go to Family'))
+    await user.click(screen.getByText('Go to Email'))
     await user.click(screen.getByText('Go to Metamask'))
 
     expect(screen.getByText('Metamask View')).toBeInTheDocument()
@@ -101,7 +101,7 @@ describe('Step navigation (handleNext)', () => {
 describe('Back button behavior', () => {
   it('shows a back button once navigated away from Default (showBack: true)', async () => {
     const user = await openDialog()
-    await user.click(screen.getByText('Go to Family'))
+    await user.click(screen.getByText('Go to Email'))
 
     const dialog = screen.getByRole('dialog')
     expect(within(dialog).getByRole('button', { name: /go back/i })).toBeInTheDocument()
@@ -110,8 +110,8 @@ describe('Back button behavior', () => {
 
   it('returns to Default step when back is clicked', async () => {
     const user = await openDialog()
-    await user.click(screen.getByText('Go to Family'))
-    expect(screen.getByText('Family View')).toBeInTheDocument()
+    await user.click(screen.getByText('Go to Email'))
+    expect(screen.getByText('Email View')).toBeInTheDocument()
 
     const dialog = screen.getByRole('dialog')
     await user.click(within(dialog).getByRole('button', { name: /go back/i }))
@@ -141,8 +141,8 @@ describe('Closing the dialog', () => {
 
   it('resets to Default step after closing and reopening', async () => {
     const user = await openDialog()
-    await user.click(screen.getByText('Go to Family'))
-    expect(screen.getByText('Family View')).toBeInTheDocument()
+    await user.click(screen.getByText('Go to Email'))
+    expect(screen.getByText('Email View')).toBeInTheDocument()
 
     await user.keyboard('{Escape}')
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()

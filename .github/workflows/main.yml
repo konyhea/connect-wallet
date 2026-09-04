@@ -1,1 +1,14 @@
-name: testing code
+name: testing the code on push
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: installing node
+        uses: actions/setup-node@v2
+      - name: installing dependencies
+        run: npm install
+      - name: running tests
+        run: yarn test
